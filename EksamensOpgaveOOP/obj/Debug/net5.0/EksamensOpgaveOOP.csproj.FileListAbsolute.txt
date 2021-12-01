@@ -14,3 +14,19 @@ C:\Users\mikke\OneDrive\Skrivebord\Semester 3\OOP\EksamenOOP\EksamensOpgaveOOP\o
 C:\Users\mikke\OneDrive\Skrivebord\Semester 3\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\ref\EksamensOpgaveOOP.dll
 C:\Users\mikke\OneDrive\Skrivebord\Semester 3\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.pdb
 C:\Users\mikke\OneDrive\Skrivebord\Semester 3\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.genruntimeconfig.cache
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\EksamensOpgaveOOP.exe
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\EksamensOpgaveOOP.deps.json
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\EksamensOpgaveOOP.runtimeconfig.json
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\EksamensOpgaveOOP.runtimeconfig.dev.json
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\EksamensOpgaveOOP.dll
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\ref\EksamensOpgaveOOP.dll
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\bin\Debug\net5.0\EksamensOpgaveOOP.pdb
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.csproj.AssemblyReference.cache
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.AssemblyInfoInputs.cache
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.AssemblyInfo.cs
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.csproj.CoreCompileInputs.cache
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.dll
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\ref\EksamensOpgaveOOP.dll
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.pdb
+C:\Users\mikke\Desktop\OOP\EksamenOOP\EksamensOpgaveOOP\obj\Debug\net5.0\EksamensOpgaveOOP.genruntimeconfig.cache

@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mikke\\OneDrive\\Skrivebord\\Semester 3\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj": {}
+    "C:\\Users\\mikke\\Desktop\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mikke\\OneDrive\\Skrivebord\\Semester 3\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj": {
+    "C:\\Users\\mikke\\Desktop\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikke\\OneDrive\\Skrivebord\\Semester 3\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj",
+        "projectUniqueName": "C:\\Users\\mikke\\Desktop\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj",
         "projectName": "EksamensOpgaveOOP",
-        "projectPath": "C:\\Users\\mikke\\OneDrive\\Skrivebord\\Semester 3\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj",
+        "projectPath": "C:\\Users\\mikke\\Desktop\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\EksamensOpgaveOOP.csproj",
         "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mikke\\OneDrive\\Skrivebord\\Semester 3\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\obj\\",
+        "outputPath": "C:\\Users\\mikke\\Desktop\\OOP\\EksamenOOP\\EksamensOpgaveOOP\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -54,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

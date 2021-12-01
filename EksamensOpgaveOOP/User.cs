@@ -17,7 +17,7 @@ namespace Stregsystemet {
 
         public override string ToString()
         {
-            return $"{firstname} {lastname} {username} {email}";
+            return $"{id} {firstname} {lastname} {username} {email} {balance}";
         }
 
         public int id 
