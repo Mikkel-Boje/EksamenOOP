@@ -2,40 +2,36 @@ using System;
 
 namespace Stregsystemet {
     public class Product {
-        public Product(string name, double price, bool isActive) {
-            id = nextId;
+        public Product(string name, double price, bool isActive, bool canBeBoughtOnCredit) {
+            ID = nextId;
             nextId++;
-            this._name = name;
-            this.price = price;
-            this.active = isActive;
+            Name = name;
+            Price = price;
+            Active = isActive;
+            CanBeBoughtOnCredit = canBeBoughtOnCredit;
         }
 
         public override string ToString()
         {
-            return $"{id} {name} {price} {active} {canBeBoughtOnCredit}";
+            return $"{ID} {Name} {Price} {Active} {CanBeBoughtOnCredit}";
         }
 
-        public bool active;
-        public bool canBeBoughtOnCredit;
-        public int id 
-        {
-            get => _id;
-            init { _id = value; }
-        }
-        public double price 
+        public bool Active;
+        public bool CanBeBoughtOnCredit;
+        public int ID { get; init; }
+        public double Price 
         {
             get => _price;
             set {
-                _price = value >= 0 ? value : throw new Exception($"Price of {this.name} was set incorrectly");
+                _price = value >= 0 ? value : throw new Exception($"Price of {this.Name} was set incorrectly");
             }
         }
-        public string name 
+        public string Name 
         {
             get => _name;
             set => _name = value ?? throw new Exception();
         }
 
-        private int _id;
         private double _price;
         private string _name;
 

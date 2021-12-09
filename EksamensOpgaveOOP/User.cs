@@ -5,47 +5,43 @@ using System.Text.RegularExpressions;
 namespace Stregsystemet {
     public class User {
         public User(string firstname, string lastname, string username, string email) {
-            id = nextId;
+            ID = nextId;
             nextId++;
             userrx = new Regex(@"^[a-z0-9_]+$");
             emailrx = new Regex(@"^[a-zA-Z0-9_.-]+@[a-zA-Z0-9_]{1}[a-zA-Z0-9_.-]*[.]+[a-zA-Z0-9_.-]*[a-zA-Z0-9_]{1}$");
-            this.firstname = firstname;
-            this.lastname = lastname;
-            this.username = username;
-            this.email = email;
+            Firstname = firstname;
+            Lastname = lastname;
+            Username = username;
+            Email = email;
         }
 
         public override string ToString()
         {
-            return $"{id} {firstname} {lastname} {username} {email} {balance}";
+            return $"{ID} {Firstname} {Lastname} {Username} {Email} {Balance}";
         }
 
-        public int id 
-        {
-            get => _id;
-            init { _id = value; }
-        }
-        public double balance 
+        public int ID { get; init; }
+        public double Balance 
         {
             get => _balance;
             set {
                 _balance = value;
                 if(_balance <= 50) {
-                    //UserBalanceNotification(User user, decimal balance)
+                    //UserBalanceNotification(User user, double balance)
                 }
             }
         }
-        public string firstname 
+        public string Firstname 
         {
             get => _firstname;
             set => _firstname = value ?? throw new Exception();
         }
-        public string lastname 
+        public string Lastname 
         {
             get => _lastname;
             set => _lastname = value ?? throw new Exception();
         }
-        public string username
+        public string Username
         {
             get => _username;
             set {
@@ -56,7 +52,7 @@ namespace Stregsystemet {
                 else throw new Exception();
             }
         }
-        public string email
+        public string Email
         {
             get => _email;
             set {
@@ -68,7 +64,6 @@ namespace Stregsystemet {
             }
         }
         
-        private int _id;
         private double _balance;
         private string _firstname;
         private string _lastname;
@@ -77,6 +72,7 @@ namespace Stregsystemet {
 
         private static Regex userrx;
         private static Regex emailrx;
+
         private static int nextId = 0;
     }
 }
