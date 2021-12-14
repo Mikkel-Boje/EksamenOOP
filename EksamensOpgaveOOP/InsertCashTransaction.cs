@@ -14,6 +14,5 @@ namespace Stregsystemet {
         {
             this.User.Balance += Amount;
         }
-
     }
 }

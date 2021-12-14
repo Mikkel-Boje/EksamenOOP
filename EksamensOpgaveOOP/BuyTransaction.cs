@@ -14,11 +14,9 @@ namespace Stregsystemet {
             if(Product.Active) {
                 if(User.Balance > Amount)
                     User.Balance -= Amount;
-                else 
-                    throw new InsufficientCreditsExeption(User, Product);
+                else throw new InsufficientCreditsExeption(User, Product);
             }
-            else
-                throw new InactiveProductExeption(Product.Name);
+            else throw new InactiveProductExeption(Product.Name);
         }
 
         public Product Product { get; }

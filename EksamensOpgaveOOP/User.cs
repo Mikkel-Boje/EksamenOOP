@@ -51,6 +51,7 @@ namespace Stregsystemet {
 
         public int ID { get; }
         public double Balance { get; set; }
+        
         public string Firstname 
         {
             get => _firstname;
@@ -92,6 +93,7 @@ namespace Stregsystemet {
         private static Regex userrx;
         private static Regex emailrx;
 
+        private static int _nextId = 0;
         private static int nextId
         {
             get => _nextId;
@@ -101,6 +103,6 @@ namespace Stregsystemet {
                 }
             }
         }
-        private static int _nextId = 0;
+        
     }
 }

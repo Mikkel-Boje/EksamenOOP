@@ -9,7 +9,7 @@ namespace Stregsystemet {
         }
         public void ParseCommand(string command) {
             if(command == "")
-                throw new System.Exception("No command entered");
+                throw new Exception("No command entered");
 
             string[] commandParts = command.Split(" ");
             
@@ -32,9 +32,9 @@ namespace Stregsystemet {
                             _controller.MultiBuyProduct(commandParts[0], quantity, commandParts[2]);
                             break;
                         }
-                        throw new System.Exception("Forkert kvantitet i multibuy");
+                        throw new Exception("Forkert kvantitet i multibuy");
                     default:
-                        throw new System.Exception();
+                        throw new Exception();
                 }
             }
             

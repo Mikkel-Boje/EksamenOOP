@@ -27,6 +27,7 @@ namespace Stregsystemet {
         public bool Active;
         public bool CanBeBoughtOnCredit;
         public int ID { get; init; }
+
         public double Price 
         {
             get => _price;
@@ -42,7 +43,8 @@ namespace Stregsystemet {
 
         private double _price;
         private string _name;
-
+        
+        private static int _nextId = 0;
         private static int nextId 
         {
             get => _nextId;
@@ -52,6 +54,6 @@ namespace Stregsystemet {
                 }
             }
         }
-        private static int _nextId = 0;
+        
     }
 }

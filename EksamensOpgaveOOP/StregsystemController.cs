@@ -37,6 +37,7 @@ namespace Stregsystemet {
             User user = _stregsystem.GetUserByUsername(username);
             _stregsystemUI.DisplayUserInfo(user);
         }
+
         public void BuyProduct(string username, string productID) {
             int intProductID;
             User user = _stregsystem.GetUserByUsername(username);
@@ -48,18 +49,25 @@ namespace Stregsystemet {
             }
             else throw new InvalidProductIDExeption<string>(productID);
         }
+
         public void MultiBuyProduct(string username, int quantity, string productID) {
             int intProductID;
             User user = _stregsystem.GetUserByUsername(username);
             if(int.TryParse(productID, out intProductID)) {
                 Product product = _stregsystem.GetProductByID(intProductID);
-                product.Price *= quantity;
-                BuyTransaction transaction = new BuyTransaction(user, product);
-                _stregsystem.ExecuteTransaction(transaction);
-                _stregsystemUI.DisplayUserBuysProduct(quantity, transaction);
+                if(user.Balance > quantity * product.Price) {
+                    for (int i = 0; i < quantity - 1; i++) {
+                        BuyTransaction multitransaction = new BuyTransaction(user, product);
+                        _stregsystem.ExecuteTransaction(multitransaction);
+                    }
+                    BuyTransaction transaction = new BuyTransaction(user, product);
+                    _stregsystem.ExecuteTransaction(transaction);
+                    _stregsystemUI.DisplayUserBuysProduct(quantity, transaction);
+                }
             }
             else throw new InvalidProductIDExeption<string>(productID);
         }
+
         public void Close() {
             _stregsystemUI.Close();
         }

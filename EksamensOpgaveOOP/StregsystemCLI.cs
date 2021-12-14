@@ -51,7 +51,7 @@ namespace Stregsystemet {
         }
 
         public void DisplayUserBuysProduct(int count, BuyTransaction transaction) {
-            ExeptionDisplay($"{transaction.User.Username} koebte {count} {transaction.Product.Name} til {transaction.Amount} kr. i alt, {transaction.Amount/count} kr. stk.");
+            ExeptionDisplay($"{transaction.User.Username} koebte {count} {transaction.Product.Name} til {transaction.Amount * count} kr. i alt, {transaction.Amount} kr. stk.");
         }
 
         public void DisplayUserInfo(User user) {
@@ -76,22 +76,23 @@ namespace Stregsystemet {
         public void DisplayInvalidProductID<T>(T productID) {
             ExeptionDisplay($"Der findes intet produkt med id: {productID}");
         }
+        
         public void DisplayInactiveProduct(string productName) {
             ExeptionDisplay($"Produktet {productName} er ikke aktivt");
         }
 
         public void DisplayBalanceWarning(User user, double balance) {
-            Console.WriteLine($"{user.Username} har mindre end 50 kr. tilbage på stregkontoen");
+            Console.WriteLine($"WARNING: {user.Username} har mindre end 50 kr. tilbage på stregkontoen");
+        }
+
+        public void Wipe() {
+            Console.Clear();
         }
 
         private void ExeptionDisplay(string text) {
             Console.WriteLine(text);
             Console.WriteLine("Tryk paa en knap for at fortsaette");
             Console.ReadKey();
-        }
-
-        public void Wipe() {
-            Console.Clear();
         }
 
         public event StregsystemEvent CommandEntered;

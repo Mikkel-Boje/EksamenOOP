@@ -18,14 +18,15 @@ namespace Stregsystemet {
         public abstract void Execute();
 
         public int ID { get; init; }
+        public DateTime Date { get; }
+        public double Amount { get; }
+
         public User User 
         {
             get => _user;
             set => _user = value ?? throw new Exception();
         }
-        public DateTime Date { get; }
-        public double Amount { get; }
-
+        
         private User _user;
 
         private static int nextId;
