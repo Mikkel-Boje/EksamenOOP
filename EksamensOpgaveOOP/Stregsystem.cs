@@ -19,18 +19,26 @@ namespace Stregsystemet {
             return transaction;
         }
         public void ExecuteTransaction(Transaction transaction) {
-            try
-            {
-                User user = transaction.User;
-                transaction.Execute();
-                transactions.Add(transaction);
-                if(user.Balance <= 50) {
-                    UserBalanceWarning.Invoke(user, user.Balance);
+            User user = transaction.User;
+            transaction.Execute();
+            transactions.Add(transaction);
+            if(user.Balance <= 50) {
+                UserBalanceWarning.Invoke(user, user.Balance);
+            }
+            try {
+                string path = "Transaktioner.csv";
+                StreamWriter file;
+                if(!File.Exists(path)) {
+                    using(file = File.CreateText(path))
+                        file.WriteLine(transaction.ToString());
+                }
+                else {
+                    using(file = File.AppendText(path))
+                        file.WriteLine(transaction.ToString());
                 }
             }
-            catch (System.Exception)
-            {
-                throw;
+            catch {
+                throw new Exception($"Der kunne ikke skrives til filen for transaktionen med ID: {transaction.ID} af {transaction.User}");
             }
         }
         public event UserBalanceNotification UserBalanceWarning;
@@ -99,7 +107,7 @@ namespace Stregsystemet {
                             }
                         }
                     }
-                    counter++;
+                    else counter++;
                 }
                 return productsInFile;
             }
@@ -119,11 +127,19 @@ namespace Stregsystemet {
                         if(int.TryParse(strings[0], out id)) {
                             if(double.TryParse(strings[4], out amount)) {
                                 amount /= 100;
-                                usersInFile.Add(new User(id, strings[1], strings[2], strings[3], amount, strings[5]));
+                                try
+                                {
+                                    usersInFile.Add(new User(id, strings[1], strings[2], strings[3], amount, strings[5]));
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                    throw;
+                                }
                             }
                         }
                     }
-                    counter++;
+                    else counter++;
                 }
                 return usersInFile;
             }

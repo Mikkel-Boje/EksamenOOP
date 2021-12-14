@@ -12,7 +12,7 @@ namespace Stregsystemet {
 
         public override string ToString()
         {
-            return $"{ID} {User} {Amount} {Date.ToString("dd/MM/yyyy hh:mm:ss")}";
+            return $"{ID} {User.Username} {Amount} {Date.ToString("dd/MM/yyyy hh:mm:ss")}";
         }
 
         public abstract void Execute();

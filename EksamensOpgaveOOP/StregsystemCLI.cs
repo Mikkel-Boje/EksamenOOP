@@ -30,7 +30,7 @@ namespace Stregsystemet {
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
-            throw new NotImplementedException();
+            ExeptionDisplay($"Admin commad: {adminCommand} was not found");
         }
 
         public void DisplayGeneralError(string errorString) {
@@ -39,7 +39,7 @@ namespace Stregsystemet {
         }
 
         public void DisplayInsufficientCash(User user, Product product) {
-            ExeptionDisplay($"{user.Username} har ikke nok stregdollars til at købe {product.Name}");
+            ExeptionDisplay($"{user.Username} har ikke nok stregdollars til at koebe {product.Name}");
         }
 
         public void DisplayTooManyArgumentsError(string command) {
@@ -65,8 +65,8 @@ namespace Stregsystemet {
             if(user.Balance < 50) {
                 Console.WriteLine("Din saldo er under 50!");
                 Console.WriteLine("Tryk paa en knap for at forsaette");
-                Console.ReadKey();
             }  
+            Console.ReadKey();
         }
 
         public void DisplayUserNotFound(string username) {
@@ -81,14 +81,17 @@ namespace Stregsystemet {
         }
 
         public void DisplayBalanceWarning(User user, double balance) {
-            Console.WriteLine($"{user} har mindre end 50 kr. tilbage på stregkontoen");
+            Console.WriteLine($"{user.Username} har mindre end 50 kr. tilbage på stregkontoen");
         }
 
         private void ExeptionDisplay(string text) {
-            Console.Clear();
             Console.WriteLine(text);
             Console.WriteLine("Tryk paa en knap for at fortsaette");
             Console.ReadKey();
+        }
+
+        public void Wipe() {
+            Console.Clear();
         }
 
         public event StregsystemEvent CommandEntered;

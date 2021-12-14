@@ -43,12 +43,12 @@ namespace Stregsystemet {
         public string Firstname 
         {
             get => _firstname;
-            set => _firstname = value ?? throw new Exception();
+            set => _firstname = value ?? throw new Exception("Username kan ikke være null");
         }
         public string Lastname 
         {
             get => _lastname;
-            set => _lastname = value ?? throw new Exception();
+            set => _lastname = value ?? throw new Exception("Efternavn kan ikke være null");
         }
         public string Username
         {

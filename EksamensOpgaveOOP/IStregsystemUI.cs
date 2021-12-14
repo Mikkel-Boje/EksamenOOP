@@ -16,5 +16,6 @@ namespace Stregsystemet {
         //Ektra functionaliteter
         void DisplayInvalidProductID<T>(T productID);
         void DisplayInactiveProduct(string productName);
+        void Wipe();
     }
 }

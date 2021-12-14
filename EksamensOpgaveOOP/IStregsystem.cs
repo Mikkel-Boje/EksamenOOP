@@ -10,6 +10,7 @@ namespace Stregsystemet {
         IEnumerable<Transaction> GetTransactions(User user, int count);
         List<User> GetUsers(Predicate<User> predicate);
         User GetUserByUsername(string username);
+        void ExecuteTransaction(Transaction transaction);
         event UserBalanceNotification UserBalanceWarning;
     }
 }

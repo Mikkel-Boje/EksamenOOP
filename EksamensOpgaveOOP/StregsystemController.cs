@@ -8,6 +8,7 @@ namespace Stregsystemet {
         }
         public void CommandLogic(string command) {
            try {
+                _stregsystemUI.Wipe();
                 _parser.ParseCommand(command);
            }
            catch (UserDoesNotExistExeption e) {
@@ -42,7 +43,7 @@ namespace Stregsystemet {
             if(int.TryParse(productID, out intProductID)) {
                 Product product = _stregsystem.GetProductByID(intProductID);
                 BuyTransaction transaction = new BuyTransaction(user, product);
-                transaction.Execute();
+                _stregsystem.ExecuteTransaction(transaction);
                 _stregsystemUI.DisplayUserBuysProduct(transaction);
             }
             else throw new InvalidProductIDExeption<string>(productID);
@@ -54,10 +55,34 @@ namespace Stregsystemet {
                 Product product = _stregsystem.GetProductByID(intProductID);
                 product.Price *= quantity;
                 BuyTransaction transaction = new BuyTransaction(user, product);
-                transaction.Execute();
+                _stregsystem.ExecuteTransaction(transaction);
                 _stregsystemUI.DisplayUserBuysProduct(quantity, transaction);
             }
             else throw new InvalidProductIDExeption<string>(productID);
+        }
+        public void Close() {
+            _stregsystemUI.Close();
+        }
+        public void Activate(string productID, bool isActive) {
+            int ID;
+            int.TryParse(productID, out ID);
+            _stregsystem.GetProductByID(ID).Active = isActive;
+        }
+        public void Credit(string productID, bool CanBeBoughtOnCredit) {
+            int ID;
+            int.TryParse(productID, out ID);
+            _stregsystem.GetProductByID(ID).CanBeBoughtOnCredit = CanBeBoughtOnCredit;
+        }
+        public void AddCredit(string username, string amount) {
+            double credits;
+            bool parsed;
+            User user = _stregsystem.GetUserByUsername(username);
+            parsed = double.TryParse(amount, out credits);
+            if(parsed) {
+                InsertCashTransaction addCredit = new InsertCashTransaction(user, credits);
+                _stregsystem.ExecuteTransaction(addCredit);
+            }       
+            else throw new AdminCommandNotFoundException(":addcredits " + username + " " + amount);
         }
 
 
