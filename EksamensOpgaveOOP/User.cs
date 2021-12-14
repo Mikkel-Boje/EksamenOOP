@@ -28,7 +28,7 @@ namespace Stregsystemet {
 
         public override string ToString()
         {
-            return $"{ID} {Firstname} {Lastname} {Username} {Email} {Balance}";
+            return $"{Firstname} {Lastname} ({Email})";
         }
 
         public int CompareTo(User user)
@@ -37,13 +37,24 @@ namespace Stregsystemet {
                 return this.ID.CompareTo(user.ID);
             return 1;
         }
+        public override bool Equals(object compareUser)
+        {
+            User user = (User)compareUser;
+            if(this.ID == user.ID)
+                return true;
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ID, Firstname);
+        }
 
-        public int ID { get; private set; }
+        public int ID { get; }
         public double Balance { get; set; }
         public string Firstname 
         {
             get => _firstname;
-            set => _firstname = value ?? throw new Exception("Username kan ikke være null");
+            init => _firstname = value ?? throw new Exception("Username kan ikke være null");
         }
         public string Lastname 
         {
@@ -53,7 +64,7 @@ namespace Stregsystemet {
         public string Username
         {
             get => _username;
-            set {
+            init {
                 MatchCollection match = userrx.Matches(value);
                 if(match.Count != 0) {
                     _username = value;

@@ -78,11 +78,10 @@ namespace Stregsystemet {
             bool parsed;
             User user = _stregsystem.GetUserByUsername(username);
             parsed = double.TryParse(amount, out credits);
-            if(parsed) {
-                InsertCashTransaction addCredit = new InsertCashTransaction(user, credits);
-                _stregsystem.ExecuteTransaction(addCredit);
-            }       
-            else throw new AdminCommandNotFoundException(":addcredits " + username + " " + amount);
+            if(parsed)
+                _stregsystem.ExecuteTransaction(_stregsystem.AddCreditsToAccount(user, credits)); 
+            else 
+                throw new AdminCommandNotFoundException(":addcredits " + username + " " + amount);
         }
 
 

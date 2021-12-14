@@ -14,7 +14,7 @@ namespace Stregsystemet {
             BuyTransaction transaction = new BuyTransaction(user, product);
             return transaction;
         }
-        public InsertCashTransaction AddCreditsToAccount(User user, int amount) {
+        public InsertCashTransaction AddCreditsToAccount(User user, double amount) {
             InsertCashTransaction transaction = new InsertCashTransaction(user, amount);
             return transaction;
         }
@@ -103,7 +103,13 @@ namespace Stregsystemet {
                         if(int.TryParse(strings[0], out id)) {
                             if(double.TryParse(strings[2], out price)) {
                                 price /= 100;
-                                productsInFile.Add(new Product(id, name, price, isActive, false));
+                                if(strings[4] != "") {
+                                    strings[4] = strings[4].Remove(strings[4].IndexOf('"'), 1);
+                                    strings[4] = strings[4].Remove(strings[4].LastIndexOf('"'), 1);
+                                    productsInFile.Add(new SeasonalProduct(DateTime.Parse(strings[4]), DateTime.Parse(strings[4]), id, name, price, isActive, false));
+                                }
+                                else
+                                    productsInFile.Add(new Product(id, name, price, isActive, false));
                             }
                         }
                     }

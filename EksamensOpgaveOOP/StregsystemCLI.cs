@@ -65,7 +65,7 @@ namespace Stregsystemet {
             if(user.Balance < 50) {
                 Console.WriteLine("Din saldo er under 50!");
                 Console.WriteLine("Tryk paa en knap for at forsaette");
-            }  
+            } 
             Console.ReadKey();
         }
 
