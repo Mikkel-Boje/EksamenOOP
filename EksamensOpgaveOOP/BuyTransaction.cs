@@ -1,5 +1,3 @@
-using System;
-
 namespace Stregsystemet {
     public class BuyTransaction : Transaction {
         public BuyTransaction(User user, Product product, double amount) : base(user, amount) {
