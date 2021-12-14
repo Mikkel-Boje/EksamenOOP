@@ -1,9 +1,8 @@
 using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Stregsystemet {
-    public class User {
+    public class User : IComparable<User> {
         public User(string firstname, string lastname, string username, double balance, string email) {
             ID = nextId;
             nextId++;
@@ -27,10 +26,16 @@ namespace Stregsystemet {
             Email = email;
         }
 
-
         public override string ToString()
         {
             return $"{ID} {Firstname} {Lastname} {Username} {Email} {Balance}";
+        }
+
+        public int CompareTo(User user)
+        {
+            if(user != null)
+                return this.ID.CompareTo(user.ID);
+            return 1;
         }
 
         public int ID { get; private set; }

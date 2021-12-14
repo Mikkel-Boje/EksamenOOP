@@ -62,7 +62,7 @@ namespace Stregsystemet {
             throw new UserDoesNotExist(username);
         }
 
-        public List<Transaction> GetTransactions(User user, int count) {
+        public IEnumerable<Transaction> GetTransactions(User user, int count) {
             List<Transaction> truncatedList = new List<Transaction>();
             for (int i = transactions.Count; i == transactions.Count - count; i--)
             {
@@ -73,8 +73,9 @@ namespace Stregsystemet {
         public List<Product> GetProductsFromFile() {
             List<Product> productsInFile = new List<Product>();
             int counter = 0;
-            if(File.Exists("products.csv")) {
-                foreach (string line in File.ReadLines(@"products.csv")) {  
+            string path = File.Exists("products.csv") ? "products.csv" : "../../../products.csv";
+            if (File.Exists(path)) {
+                foreach (string line in File.ReadLines(path)) {  
                     if(counter != 0) {
                         string[] strings = line.Split(";");
                         int id;
@@ -104,11 +105,13 @@ namespace Stregsystemet {
             }
             throw new FileNotFoundException();
         }
+
         public List<User> GetUsersFromFile() {
             List<User> usersInFile = new List<User>();
             int counter = 0;
-            if(File.Exists("users.csv")) {
-                foreach (string line in File.ReadLines(@"users.csv")) {  
+            string path = File.Exists("users.csv") ? "users.csv" : "../../../users.csv";
+            if (File.Exists(path)) {
+                foreach (string line in File.ReadLines(path)) {  
                     if(counter != 0) {
                         string[] strings = line.Split(",");
                         int id;
@@ -126,7 +129,8 @@ namespace Stregsystemet {
             }
             throw new FileNotFoundException();
         }
-        public List<Product> ActiveProducts 
+        
+        public IEnumerable<Product> ActiveProducts 
         {
             get {
                 List<Product> activeProducts = new List<Product>();

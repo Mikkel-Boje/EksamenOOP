@@ -1,17 +1,26 @@
 using System;
 
 namespace Stregsystemet {
+    public delegate void StregsystemEvent(string command);
+
     public class StregsystemetCLI : IStregsystemUI {
         public StregsystemetCLI(IStregsystem stregsystem) {
             _stregsystem = stregsystem;
             _stregsystem.UserBalanceWarning += DisplayBalanceWarning;
         }
         public void Start() {
-            Console.WriteLine("Du kan \"saette streger\" foelgende maade:\n");
-            Console.WriteLine("1. Indtast dit brugernavn og et produkt ID (adskilt med \"space\"). \n   Koebet vil blive direkte registreret uden yderligere input.\n");
-            foreach (Product item in _stregsystem.ActiveProducts)
+            while (running)
             {
-                Console.WriteLine(item.ToString());
+                Console.Clear();
+                Console.WriteLine("Stregsystemet");
+                Console.WriteLine("Du kan \"saette streger\" foelgende maade:");
+                Console.WriteLine("1. Indtast dit brugernavn og et produkt ID (adskilt med \"space\"). \n   Koebet vil blive direkte registreret uden yderligere input.");
+                foreach (Product item in _stregsystem.ActiveProducts)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                Console.Write("\nQuickbuy: ");
+                CommandEntered.Invoke(Console.ReadLine());
             }
         }
 
@@ -57,7 +66,18 @@ namespace Stregsystemet {
 
         public void DisplayUserInfo(User user)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine($"Username   : {user.Username}\nFulde navn : {user.Firstname} {user.Lastname}\nSaldo      : {user.Balance} kr.\n");
+            foreach (Transaction item in _stregsystem.GetTransactions(user, 10))
+            {
+                if(item is BuyTransaction) {
+                    Console.WriteLine(item);
+                }
+            }
+            if(user.Balance < 50) 
+                Console.WriteLine("Din saldo er under 50!");
+            Console.WriteLine("Tryk paa en knap for at forsaette");
+            Console.ReadKey();
         }
 
         public void DisplayUserNotFound(string username)
@@ -70,5 +90,6 @@ namespace Stregsystemet {
             Console.WriteLine($"{user} har mindre end 50 kr. tilbage på stregkontoen");
         }
         private IStregsystem _stregsystem;
+        public bool running = true;
     }
 }

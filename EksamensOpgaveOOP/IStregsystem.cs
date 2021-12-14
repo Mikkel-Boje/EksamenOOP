@@ -1,13 +1,14 @@
 using System.Collections.Generic;
+using System;
 
 namespace Stregsystemet {
     public interface IStregsystem {
-        List<Product> ActiveProducts { get; }
+        IEnumerable<Product> ActiveProducts { get; }
         InsertCashTransaction AddCreditsToAccount(User user, int amount);
         BuyTransaction BuyProduct(User user, Product product);
         Product GetProductByID(int id);
-        List<Transaction> GetTransactions(User user, int count);
-        //User GetUsers(Func<User, bool> predicate);
+        IEnumerable<Transaction> GetTransactions(User user, int count);
+        List<User> GetUsers(Predicate<User> predicate);
         User GetUserByUsername(string username);
         event UserBalanceNotification UserBalanceWarning;
     }

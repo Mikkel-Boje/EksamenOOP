@@ -13,5 +13,4 @@ namespace Stregsystemet {
         void Start();
         event StregsystemEvent CommandEntered;
     }
-    public delegate void StregsystemEvent(object sender);
 }
