@@ -2,7 +2,9 @@ using System;
 
 namespace Stregsystemet {
     public class InactiveProductExeption : Exception {
-        public InactiveProductExeption(string Username, string ProductName) : base($"{Username} prøvede at købe {ProductName} men det var inaktivt") {
+        public InactiveProductExeption(string productName) : base() {
+            ProductName = productName;
         }
+        public string ProductName { get; }
     }
 }

@@ -1,6 +1,6 @@
 namespace Stregsystemet {
     public class BuyTransaction : Transaction {
-        public BuyTransaction(User user, Product product, double amount) : base(user, amount) {
+        public BuyTransaction(User user, Product product) : base(user, product.Price) {
             Product = product;
         }
 
@@ -15,10 +15,10 @@ namespace Stregsystemet {
                 if(User.Balance > Amount)
                     User.Balance -= Amount;
                 else 
-                    throw new InsufficientCreditsExeption(User.Username, Product.Name);
+                    throw new InsufficientCreditsExeption(User, Product);
             }
             else
-                throw new InactiveProductExeption(User.Username, Product.Name);
+                throw new InactiveProductExeption(Product.Name);
         }
 
         public Product Product { get; }

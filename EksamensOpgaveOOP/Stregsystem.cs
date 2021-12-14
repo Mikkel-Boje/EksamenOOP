@@ -11,7 +11,7 @@ namespace Stregsystemet {
             users = GetUsersFromFile();
         }
         public BuyTransaction BuyProduct(User user, Product product) {
-            BuyTransaction transaction = new BuyTransaction(user, product, product.Price);
+            BuyTransaction transaction = new BuyTransaction(user, product);
             return transaction;
         }
         public InsertCashTransaction AddCreditsToAccount(User user, int amount) {
@@ -41,7 +41,7 @@ namespace Stregsystemet {
                 if(product.ID == ID)
                     return product;
             }
-            throw new ProductDoesNotExist(ID);
+            throw new InvalidProductIDExeption<int>(ID);
         }
         public List<User> GetUsers(Predicate<User> predicate) {
             List<User> predicateUsers = new List<User>();
@@ -59,7 +59,7 @@ namespace Stregsystemet {
                 if(user.Username == username)
                     return user;
             }
-            throw new UserDoesNotExist(username);
+            throw new UserDoesNotExistExeption(username);
         }
 
         public IEnumerable<Transaction> GetTransactions(User user, int count) {
@@ -129,7 +129,7 @@ namespace Stregsystemet {
             }
             throw new FileNotFoundException();
         }
-        
+
         public IEnumerable<Product> ActiveProducts 
         {
             get {
